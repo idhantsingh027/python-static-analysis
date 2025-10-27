@@ -1,4 +1,4 @@
-# Python Static Analysis
+# 🐍 Python Static Analysis
 
 This repository contains the work focused on enhancing Python code quality, security, and style using static analysis tools.
 
@@ -20,16 +20,8 @@ This lab utilized three industry-standard Python static analysis tools:
 * **`bandit_report.txt`**: The final Bandit analysis report for the fixed code (showing no issues).
 * **`flake8_report.txt`**: The final Flake8 analysis report for the fixed code.
 
-## 📈 Summary of Improvements
+## 📈 Measurable Results
 
-By analyzing the reports from the *original* flawed code, I identified and fixed several high-priority issues:
-
-1.  **Security Vulnerability (Bandit B307):** Removed a dangerous `eval()` call.
-2.  **Critical Bug (Pylint W0102):** Fixed a mutable default argument (`logs=[]`) that would cause shared state across function calls.
-3.  **Error Hiding (Flake8 E722):** Replaced a bare `except:` with a specific `except KeyError:`, which prevents the program from silencing all other errors.
-4.  **Code Quality (Flake8 F401):** Implemented the unused `logging` module to provide better error messages instead of using `pass`.
-
-**Measurable Results:**
 * **Bandit (Security):** 100% of security issues were resolved (as seen in `bandit_report.txt`).
 * **Pylint (Quality):** The code quality score improved from an initial **4.80/10** to a final **5.58/10**.
 * **Flake8 (Style):** All major bugs (`E722`) and quality warnings (`F401`) were fixed.
