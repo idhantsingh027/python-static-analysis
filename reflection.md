@@ -35,6 +35,6 @@ I would integrate these tools in two key places:
 
 The improvements were significant and tangible:
 
-* **Robustness (Security):** The code is *much* safer. Removing the `eval` function (B307) eliminated a major security vulnerability, which is confirmed by the clean `bandit_report_after.txt`.
+* **Robustness (Security):** The code is *much* safer. Removing the `eval` function (B307) eliminated a major security vulnerability, which is confirmed by the clean `bandit_report.txt`.
 * **Robustness (Bugs):** The code is more predictable. Fixing the `dangerous-default-value` (W0102) and the `bare-except` (E722) eliminated two hidden, hard-to-find bugs. The program will no longer crash from unrelated errors or behave strangely across function calls.
 * **Maintainability:** The Pylint score tangibly improved from **4.80/10** to **5.58/10**. This shows a measurable increase in code quality, making the code cleaner and easier for another developer to understand and maintain.
