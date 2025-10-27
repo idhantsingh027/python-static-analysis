@@ -5,7 +5,9 @@ from datetime import datetime
 # Global variable
 stock_data = {}
 
-def addItem(item="default", qty=0, logs=[]):
+def addItem(item="default", qty=0, logs=None):
+    if logs is None:
+        logs = []
     if not item:
         return
     stock_data[item] = stock_data.get(item, 0) + qty
@@ -16,8 +18,8 @@ def removeItem(item, qty):
         stock_data[item] -= qty
         if stock_data[item] <= 0:
             del stock_data[item]
-    except:
-        pass
+    except KeyError:
+        logging.warning(f"Item '{item}' not found, cannot remove.")
 
 def getQty(item):
     return stock_data[item]
@@ -46,6 +48,7 @@ def checkLowItems(threshold=5):
     return result
 
 def main():
+    logging.basicConfig(level=logging.INFO)
     addItem("apple", 10)
     addItem("banana", -2)
     addItem(123, "ten")  # invalid types, no check
@@ -56,6 +59,5 @@ def main():
     saveData()
     loadData()
     printData()
-    eval("print('eval used')")  # dangerous
 
 main()
